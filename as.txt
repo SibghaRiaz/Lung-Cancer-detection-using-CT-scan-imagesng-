@@ -1,0 +1,150 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.tree import DecisionTreeRegressor
+from sklearn.utils import shuffle
+
+model = DescisionTreeRegressor()
+model.fit(Xtrain, Ytrain)
+prediction = model.predict(xtest)
+
+class BaggedTreeRegressor:
+   def _init_(self,B):
+       self.B = B
+   
+   def fit(self,X,Y):
+       N=len(X)
+       self.models = []
+       for b in xrange(self.B):
+           idx = np.random.choice(N, size=N, replace=True)
+           Xb = X[idx]
+           Yb = Y[idx]
+           model = DecisionTreeRegressor()
+           model.fit(Xb, Yb)
+           self.models.append(model)
+    def predict(self,X):
+        predictions = np.zeros(len(X))
+        for model in self.models:
+        predictions += model.predict(X)
+        return predictions / self.B
+
+model = BaggedTreeRegressor(300)
+model.fit(Xtrain, Ytrain)
+prediction = model.predict(xtest)
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
